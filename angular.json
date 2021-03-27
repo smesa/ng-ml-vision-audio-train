@@ -124,9 +124,16 @@
               "devServerTarget": "ui-ml-train-models:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
   },
-  "defaultProject": "ui-ml-train-models"
+  "defaultProject": "ui-ml-train-models",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

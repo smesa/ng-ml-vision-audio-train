@@ -1,9 +1,16 @@
 @import "../node_modules/uikit/src/scss/variables-theme.scss";
 @import "../node_modules/uikit/src/scss/mixins-theme.scss";
 @import "../node_modules/uikit/src/scss/uikit-theme.scss";
+
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
 
+
+@import './variables-colors.scss';
+
 body {
-  padding: 3em;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden;
+  background-color: $color-7-hex !important;
 }

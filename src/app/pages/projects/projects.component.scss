@@ -1,0 +1,20 @@
+.uk-navbar-container {
+  background: transparent !important;
+  padding-left: 2em;
+  font-weight: 700;
+}
+
+.uk-input {
+  border: none !important;
+  border-radius: 10px;
+}
+
+.add-button {
+  border-radius: 5px;
+  margin-left: 1em;
+  text-transform: initial;
+
+  &:hover {
+    opacity: .8;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ui-ml-train": {
+      "hosting": {
+        "ui-ml-train-models": [
+          "ui-ml-train"
+        ]
+      }
+    }
+  }
+}

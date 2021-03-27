@@ -1,0 +1,10 @@
+@import './../variables-colors.scss';
+
+.uk-navbar-container {
+  background-color: $color-3-hex !important;
+  color: $color-1-hex !important;
+}
+
+a.uk-navbar-item {
+  color: $color-6-hex !important;
+}

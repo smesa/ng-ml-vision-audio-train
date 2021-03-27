@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { ProjectsComponent } from './pages/projects/projects.component';
 
-const routes: Routes = [];
+const extraOptions: ExtraOptions = {
+  useHash: true
+}
+
+const routes: Routes = [
+  {
+    path: 'projects',
+    component: ProjectsComponent
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, extraOptions)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

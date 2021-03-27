@@ -1,0 +1,76 @@
+@import "./../../../variables-colors.scss";
+
+.add-card {
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  align-items: center;
+  background-color: $color-3-hex;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+  &:hover {
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    background-color: #fff;
+    color: $color-3-hex;
+  }
+}
+
+.uk-modal-title {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-bottom: 2em;
+}
+
+.uk-open > .uk-modal-dialog {
+  border-radius: 10px;
+}
+#modal-select-type {
+  background-color: $color-3-hex !important;
+  color: #FFF;
+}
+
+.uk-card {
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+  }
+}
+
+.card-option {
+  @extend .uk-card;
+  background-color: $color-1-hex;
+  &:hover {
+    background-color: $color-4-hex;
+    .uk-card-title {
+      color: #fff;
+    }
+  }
+
+  &.selected {
+    background-color: $color-4-hex;
+    .uk-card-title {
+      color: #fff;
+    }
+  }
+}
+
+
+.uk-button-continue {
+  border-radius: 5px;
+  background-color: $color-4-hex;
+  color: #fff;
+  &:hover {
+    opacity: .8;
+  }
+}
+
+button:disabled {
+  background-color: #dedede;
+  cursor: not-allowed;
+}
