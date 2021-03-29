@@ -40,6 +40,7 @@ const reducer = createReducer(
     projectSelected: data
   }))
 
+
 )
 
 export function projectReducer(state, action) {

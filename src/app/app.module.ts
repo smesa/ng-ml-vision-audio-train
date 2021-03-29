@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
+
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,18 +19,23 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProjectsEffects } from './store/projects/projects.effects';
 import { appReducers } from './store/reducers';
 import { ProjectFacade } from './common/facades/project.facade';
+import { TrainComponent } from './pages/projects/train/train.component';
+
+defineCustomElements(window);
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectsComponent,
     ProjectListComponent,
-    ProjectAddComponent
+    ProjectAddComponent,
+    TrainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     StoreModule.forRoot(appReducers),

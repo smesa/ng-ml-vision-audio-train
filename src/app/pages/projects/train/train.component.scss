@@ -1,0 +1,115 @@
+.uk-navbar-container {
+  background: transparent !important;
+  padding-left: 2em;
+  font-weight: 700;
+}
+
+.uk-container {
+  padding: 1em 5em;
+}
+
+.card-dataset {
+  background-color: transparent !important;
+  border: 1px dotted rgba(0,0,0,.2);
+  border-radius: 10px;
+  height: 80vh;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.card-train {
+  background-color: #FFF;
+  border-radius: 10px;
+  height: 80vh;
+  max-height: 80vh;
+  overflow-y: scroll;
+  margin: 0;
+}
+
+
+.add-category {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 3px dotted rgba(0,0,0,.4);
+  cursor: pointer;
+
+  &:hover{
+    box-shadow: 4px 4px 8px rgba(0,0,0,.2);
+  }
+}
+
+.category-card {
+  border-radius: 10px;
+  margin-bottom: 1em;
+  padding: 0;
+
+  .title {
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  .pictures-message {
+    padding: 1em;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .uk-card-title {
+    padding: .5em;
+  }
+
+  .pics-categories {
+    padding: 1em;
+    cursor: pointer !important;
+    &:hover {
+      .delete-pic {
+        display: initial;
+      }
+    }
+
+  }
+
+  .uk-input:disabled {
+    border: none;
+    background: transparent;
+    color: #000;
+  }
+
+  .add-pic {
+    background: rgba(0,0,0,.2);
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  .picture-category {
+
+    border-radius: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+    position: relative;
+
+    .delete-pic {
+
+      position: absolute;
+      display: none;
+      top: 2px;
+      right: 2px;
+      background-color: #ffffffc4;
+      padding: 2px;
+      border-radius: 40px;
+      font-size: 7px;
+      border: 1px solid #000;
+      cursor: pointer !important;
+      z-index: 9;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

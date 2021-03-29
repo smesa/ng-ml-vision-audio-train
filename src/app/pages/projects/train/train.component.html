@@ -1,0 +1,60 @@
+<nav class="uk-navbar-container uk-margin" uk-navbar>
+  <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo" href="#">UI Train ML</a>
+  </div>
+</nav>
+
+
+<div class="uk-container uk-container-expand">
+
+  <div uk-grid>
+
+    <div class="uk-width-1-2@m uk-margin-small">
+      <div class="uk-card uk-card-default uk-card-body card-dataset">
+        <h3 class="uk-card-title">Train Zone</h3>
+
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m category-card" *ngFor="let item of projectCategories; index as i">
+          <div class="title">
+            <div class="uk-inline uk-card-title">
+              <a class="uk-form-icon uk-form-icon-flip" uk-icon="icon: file-edit" style="padding-right: 10px;" (click)="item.edit = true;"></a>
+              <input class="uk-input" type="text" (keyup.enter)="changeValueName($event.target.value, item)" [value]="item.name" [disabled]="!item.edit">
+            </div>
+          </div>
+
+          <span class="pictures-message" *ngIf="item?.pics.length === 0">
+            Añada muestras
+          </span>
+
+          <span class="pictures-message" *ngIf="item?.pics.length > 0">
+            {{item.pics.length}} muestras de imagenes:
+          </span>
+          <ul class="uk-thumbnav pics-categories" uk-margin>
+            <li>
+              <div class="add-pic" (click)="takePicture(item)">
+                <img src="./../../../../assets/img/icon-take-picture.png" width="70" alt="">
+              </div>
+
+              <div class="picture-category" *ngFor="let pic of item?.pics; index as i">
+                <img src="data:image/jpeg;base64,{{pic}}" width="90" alt="">
+                <span class="delete-pic" uk-icon="icon: close" (click)="deletePic(item,i)"></span>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="uk-placeholder uk-text-center add-category" (click)="addVisionCategory()">Agregar categoria</div>
+      </div>
+    </div>
+
+    <div class="uk-width-1-2@m">
+      <div class="uk-card uk-card-default uk-card-body card-train">
+        <h3 class="uk-card-title">Test Zone</h3>
+        <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

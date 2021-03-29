@@ -95,5 +95,11 @@ export class FirestoreCommonsService {
     });
   }
 
+  delete<T>(ref: DocPredicate<T>): Promise<void> {
+    return this.doc(ref).delete();
+  }
+
+
+
 
 }
