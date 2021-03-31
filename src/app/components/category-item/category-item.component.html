@@ -1,0 +1,58 @@
+<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m category-card"
+     [ngClass]="{'disabled': categoryItem?.enable === false}">
+
+  <div class="title">
+    <div class="uk-inline uk-card-title">
+      <a class="uk-form-icon uk-form-icon-flip " uk-icon="icon: file-edit" style="padding-right: 10px;" (click)="categoryItem.edit = true;"></a>
+      <input class="uk-input" type="text" (keyup.enter)="changeValueName($event.target.value)" [value]="categoryItem?.name" [disabled]="!categoryItem?.edit">
+    </div>
+
+    <span class="uk-label uk-label-warning" *ngIf="categoryItem?.enable === false">
+      Deshabilitada
+    </span>
+
+    <div class="uk-inline button-more-options">
+      <a uk-icon="icon:more-vertical"></a>
+      <div uk-dropdown="mode: click">
+        <ul class="uk-nav uk-dropdown-nav">
+
+          <li>
+            <a (click)="deleteCategory()">Eliminar categoria</a>
+          </li>
+          <li *ngIf="categoryItem?.enable !== false">
+            <a (click)="changeStatusEnableCategory(false)">Deshabilitar categoria</a>
+          </li>
+          <li *ngIf="categoryItem?.enable === false">
+            <a (click)="changeStatusEnableCategory(true)">Habilitar categoria</a>
+          </li>
+          <li>
+            <a (click)="deleteAllPics()">Eliminar muestras</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <span class="pictures-message" *ngIf="categoryItem?.pics.length === 0">
+    Añada muestras
+  </span>
+
+  <span class="pictures-message" *ngIf="categoryItem?.pics.length > 0">
+    {{categoryItem?.pics.length}} muestras de imagenes:
+  </span>
+
+  <ul class="uk-thumbnav pics-categories" uk-margin>
+    <li>
+      <div class="add-pic" (click)="takePicture()">
+        <img src="./../../../../assets/img/icon-take-picture.png" width="70" alt="">
+      </div>
+
+      <div class="picture-category" *ngFor="let pic of categoryItem?.pics; index as i">
+        <img src="data:image/jpeg;base64,{{pic}}" width="90" alt="">
+        <span class="delete-pic" uk-icon="icon: close" (click)="deletePic(i)"></span>
+      </div>
+    </li>
+  </ul>
+
+</div>

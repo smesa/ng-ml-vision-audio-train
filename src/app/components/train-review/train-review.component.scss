@@ -1,0 +1,54 @@
+.card-review {
+  background-color: #ffffff9b;
+  border-radius: 10px;
+  height: 85vh;
+  max-height: 85vh;
+  overflow-y: scroll;
+  margin: 0;
+
+  .uk-card-title {
+    color: #000;
+    border-bottom: 1px solid #000;
+    padding-bottom: 15px;
+  }
+}
+
+.webcam {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  width: auto;
+  height: auto;
+}
+
+.evaluation-bar-container {
+
+  margin-top: 2em;
+  color: #fff;
+
+  color: #000;
+
+  .progress-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .progress-bar {
+      background-color: #dedede;
+      opacity: .5;
+      border-radius: 5px;
+      box-shadow: 4px 4px 8px rgba(0,0,0,.1);
+      border: none;
+      opacity: .5;
+      width: 100%;
+
+      .progress-indicator {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        height: 35px;
+        width: 10%;
+      }
+    }
+  }
+}

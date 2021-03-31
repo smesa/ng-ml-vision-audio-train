@@ -15,7 +15,13 @@ const routes: Routes = [
   {
     path: 'projects/train/:id',
     component: TrainComponent
-  }
+  },
+  {
+    path: '',
+    redirectTo: 'projects',
+    pathMatch: 'full'
+  },
+
 ];
 
 @NgModule({

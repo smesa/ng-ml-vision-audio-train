@@ -1,0 +1,6 @@
+<div class="uk-placeholder uk-text-center add-category" (click)="addVisionCategory()">Agregar categoria</div>
+
+<div *ngFor="let item of projectCategories; index as i">
+  <app-category-item [categoryItem]="item" [projectID]="projectID"></app-category-item>
+</div>
+

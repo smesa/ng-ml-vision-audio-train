@@ -1,5 +1,7 @@
 export interface visionCategoryModel {
   id?: string,
   name: string,
-  pics: Array<string>
+  edit?: boolean,
+  pics: Array<string>,
+  enable?: boolean,
 }

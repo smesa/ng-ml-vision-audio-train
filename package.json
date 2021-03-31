@@ -26,6 +26,7 @@
     "@ngrx/effects": "^11.0.1",
     "@ngrx/store": "^11.0.1",
     "@ngrx/store-devtools": "^11.0.1",
+    "@tensorflow-models/mobilenet": "^2.1.0",
     "@tensorflow/tfjs": "^3.3.0",
     "firebase": "^7.0 || ^8.0",
     "jquery": "^3.6.0",

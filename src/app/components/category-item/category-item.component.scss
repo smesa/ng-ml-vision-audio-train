@@ -1,0 +1,95 @@
+.category-card {
+
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  padding: 0;
+
+  &.disabled {
+    background-color: #e4e2e2;
+  }
+
+  .title {
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  .pictures-message {
+    padding: 1em;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .uk-card-title {
+    padding: .5em;
+  }
+
+  .pics-categories {
+    border: none;
+    padding: 1em;
+  }
+
+  .uk-input:disabled {
+    border: none;
+    background: transparent;
+    color: #000;
+  }
+
+  .add-pic {
+
+    background: rgba(0,0,0,.2);
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  .picture-category {
+
+    border-radius: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+    position: relative;
+
+    cursor: pointer !important;
+
+    &:hover {
+      .delete-pic {
+        display: initial;
+      }
+    }
+
+    .uk-icon {
+      color: #fff !important;
+    }
+
+    .delete-pic {
+      background-color: #fb3939c4;
+      border-radius: 40px;
+      cursor: pointer !important;
+      display: none;
+      font-size: 7px;
+      padding: 2px;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      z-index: 9;
+    }
+  }
+}
+
+
+.button-more-options {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+}
+
+.uk-label {
+  text-transform: capitalize;
+  border-radius: 5px;
+}

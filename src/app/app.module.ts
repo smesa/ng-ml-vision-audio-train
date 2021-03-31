@@ -20,6 +20,10 @@ import { ProjectsEffects } from './store/projects/projects.effects';
 import { appReducers } from './store/reducers';
 import { ProjectFacade } from './common/facades/project.facade';
 import { TrainComponent } from './pages/projects/train/train.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { CategoryItemComponent } from './components/category-item/category-item.component';
+import { TrainModelComponent } from './components/train-model/train-model.component';
+import { TrainReviewComponent } from './components/train-review/train-review.component';
 
 defineCustomElements(window);
 
@@ -29,7 +33,11 @@ defineCustomElements(window);
     ProjectsComponent,
     ProjectListComponent,
     ProjectAddComponent,
-    TrainComponent
+    TrainComponent,
+    CategoryListComponent,
+    CategoryItemComponent,
+    TrainModelComponent,
+    TrainReviewComponent
   ],
   imports: [
     BrowserModule,

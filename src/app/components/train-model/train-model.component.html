@@ -1,0 +1,43 @@
+
+  <div class="uk-card uk-card-default uk-card-body card-train card-preparation">
+    <div class="title">
+      <h3 class="uk-card-title">Preparación</h3>
+    </div>
+
+    <button class="uk-button uk-button-danger uk-margin-small button-train" (click)="trainModel()">Entrenar modelo</button>
+
+    <ul uk-accordion class="parameters-options">
+      <li class="uk-open">
+          <a class="uk-accordion-title" href="#">Parametros</a>
+          <div class="uk-accordion-content">
+            <div class="uk-margin">
+              <label class="uk-form-label" for="epocs">Épocas</label>
+              <div class="uk-form-controls">
+                  <input class="uk-input" id="epocs" type="number" [(ngModel)]="epocs">
+              </div>
+            </div>
+            <div class="uk-margin">
+              <label class="uk-form-label" for="batchSize">Tamaño del lote</label>
+              <div class="uk-form-controls">
+                  <select class="uk-select" id="batchSize" [(ngModel)]="batchSize">
+                      <option value="16">16</option>
+                      <option value="32">32</option>
+                      <option value="64">64</option>
+                      <option value="128">128</option>
+                      <option value="256">256</option>
+                      <option value="512">512</option>
+                  </select>
+              </div>
+            </div>
+            <div class="uk-margin">
+              <label class="uk-form-label" for="learningRate">Tasa de aprendizaje</label>
+              <div class="uk-form-controls">
+                  <input class="uk-input" id="learningRate" type="number" step="0.001" max="0.1" [(ngModel)]="learningRate">
+              </div>
+            </div>
+          </div>
+      </li>
+    </ul>
+
+  </div>
+

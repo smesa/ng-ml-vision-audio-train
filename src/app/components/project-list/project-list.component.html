@@ -8,11 +8,21 @@
 
     <div *ngFor="let item of projectList$ | async">
 
-        <div class="uk-card uk-card-default uk-card-body" (click)="selectProject(item)">
-          <div class="uk-card-badge uk-label">{{item.type}}</div>
-          <h3 class="uk-card-title">{{item.name}}</h3>
-          <p>{{item.description}}</p>
+        <div class="uk-card uk-card-default">
+
+          <div class="uk-card-body" (click)="selectProject(item)">
+            <div class="uk-card-badge uk-label" [ngClass]="{vision: item.type === 'vision'}">{{item.type}}</div>
+            <h3 class="uk-card-title">{{item.name}}</h3>
+            <p>{{item.description}}</p>
+          </div>
+
+          <div class="uk-card-footer" align="end">
+            <a class="uk-button uk-button-text" (click)="deleteProject(item)">Eliminar</a>
+          </div>
+
         </div>
+
+
     </div>
   </div>
 

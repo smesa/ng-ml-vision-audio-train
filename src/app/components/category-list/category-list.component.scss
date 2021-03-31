@@ -1,0 +1,20 @@
+.card-train {
+  background-color: #FFF;
+  border-radius: 10px;
+  height: 80vh;
+  max-height: 80vh;
+  overflow-y: scroll;
+  margin: 0;
+}
+
+
+.add-category {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 3px dotted rgba(0,0,0,.4);
+  cursor: pointer;
+  font-weight: 500;
+  &:hover{
+    box-shadow: 4px 4px 8px rgba(0,0,0,.2);
+  }
+}

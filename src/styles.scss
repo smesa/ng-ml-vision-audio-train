@@ -14,3 +14,12 @@ body {
   overflow: hidden;
   background-color: $color-7-hex !important;
 }
+
+.uk-button {
+  text-transform: initial;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 4px 4px 8px rgba(0,0,0,.1);
+  }
+}

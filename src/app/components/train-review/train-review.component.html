@@ -1,0 +1,28 @@
+
+  <div class="uk-card uk-card-default uk-card-body card-review">
+    <div class="title">
+      <h3 class="uk-card-title">Revisión</h3>
+    </div>
+
+    <div uk-grid>
+      <div class="uk-width-1-1@m uk-margin-small">
+        <video class="webcam" autoplay="" #webcam id="webcam" playsinline muted></video>
+      </div>
+    </div>
+
+    <div class="evaluation-bar-container">
+      <h3 class="uk-card-title">Salida</h3>
+      <div class="progress-container" uk-grid *ngFor="let item of projectCategories">
+        <div class="uk-width-1-5@m">
+          {{item.name}}
+        </div>
+        <div class="uk-width-4-5@m">
+          <div class="progress-bar">
+            <div class="progress-indicator" [style.background-color]="getRandomColor()"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
