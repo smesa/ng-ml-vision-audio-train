@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
 
-type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;
-type DocPredicate<T> = string | AngularFirestoreDocument<T>;
+type CollectionPredicate<Type> = string | AngularFirestoreCollection<Type>;
+type DocPredicate<Type> = string | AngularFirestoreDocument<Type>;
 
 
 @Injectable({
@@ -27,42 +27,42 @@ export class FirestoreCommonsService {
     return firebase.default.firestore.FieldValue.serverTimestamp();
   }
 
-  col<T>(ref: CollectionPredicate<T>, queryFn?): AngularFirestoreCollection<T> {
-    return typeof ref === 'string' ? this.afs.collection<T>(ref, queryFn) : ref;
+  col<Type>(ref: CollectionPredicate<Type>, queryFn?): AngularFirestoreCollection<Type> {
+    return typeof ref === 'string' ? this.afs.collection<Type>(ref, queryFn) : ref;
   }
 
-  doc<T>(ref: DocPredicate<T>): AngularFirestoreDocument<T> {
+  doc<Type>(ref: DocPredicate<Type>): AngularFirestoreDocument<Type> {
     return typeof ref === 'string' ? this.afs.doc(ref) : ref;
   }
 
-  doc$<T>(ref: DocPredicate<T>): Observable<T> {
+  doc$<Type>(ref: DocPredicate<Type>): Observable<Type> {
     return this.doc(ref)
       .snapshotChanges()
       .pipe(
         map(
-          (doc: Action<DocumentSnapshotDoesNotExist | DocumentSnapshotExists<T>>) => {
-            return doc.payload.data() as T;
+          (doc: Action<DocumentSnapshotDoesNotExist | DocumentSnapshotExists<Type>>) => {
+            return doc.payload.data() as Type;
           }),
       );
   }
 
-  col$<T>(ref: CollectionPredicate<T>, queryFn?): Observable<T[]> {
+  col$<Type>(ref: CollectionPredicate<Type>, queryFn?): Observable<Type[]> {
     return this.col(ref, queryFn)
       .snapshotChanges()
       .pipe(
-        map((docs: DocumentChangeAction<T>[]) => {
-          return docs.map((doc: DocumentChangeAction<T>) => doc.payload.doc.data()) as T[];
+        map((docs: DocumentChangeAction<Type>[]) => {
+          return docs.map((doc: DocumentChangeAction<Type>) => doc.payload.doc.data()) as Type[];
         }),
       );
   }
 
-  colWithIds$<T>(ref: CollectionPredicate<T>, queryFn?): Observable<any[]> {
+  colWithIds$<Type>(ref: CollectionPredicate<Type>, queryFn?): Observable<any[]> {
     return this.col(ref, queryFn)
       .snapshotChanges()
       .pipe(
-        map((docs: DocumentChangeAction<T>[]) => {
-          return docs.map((a: DocumentChangeAction<T>) => {
-            const data: Object = a.payload.doc.data() as T;
+        map((docs: DocumentChangeAction<Type>[]) => {
+          return docs.map((a: DocumentChangeAction<Type>) => {
+            const data: Object = a.payload.doc.data() as Type;
             const id = a.payload.doc.id;
             return { id, ...data };
           });
@@ -70,7 +70,7 @@ export class FirestoreCommonsService {
       );
   }
 
-  add<T>(ref: CollectionPredicate<T>, data): Promise<firebase.default.firestore.DocumentReference> {
+  add<Type>(ref: CollectionPredicate<Type>, data): Promise<firebase.default.firestore.DocumentReference> {
     const timestamp = this.timestamp;
     return this.col(ref).add({
       ...data,
@@ -79,7 +79,7 @@ export class FirestoreCommonsService {
     });
   }
 
-  set<T>(ref: DocPredicate<T>, data: any): Promise<void> {
+  set<Type>(ref: DocPredicate<Type>, data: any): Promise<void> {
     const timestamp = this.timestamp;
     return this.doc(ref).set({
       ...data,
@@ -88,14 +88,14 @@ export class FirestoreCommonsService {
     });
   }
 
-  update<T>(ref: DocPredicate<T>, data: any): Promise<void> {
+  update<Type>(ref: DocPredicate<Type>, data: any): Promise<void> {
     return this.doc(ref).update({
       ...data,
       updatedAt: this.timestamp,
     });
   }
 
-  delete<T>(ref: DocPredicate<T>): Promise<void> {
+  delete<Type>(ref: DocPredicate<Type>): Promise<void> {
     return this.doc(ref).delete();
   }
 

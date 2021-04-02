@@ -10,7 +10,7 @@ import { FirestoreCommonsService } from 'src/app/services/firestore-commons.serv
 })
 export class TrainReviewComponent implements OnInit {
 
-  projectCategories: visionCategoryModel[] = [];
+  projectCategories = [];
 
   constructor(
     private fcs: FirestoreCommonsService,
@@ -20,18 +20,23 @@ export class TrainReviewComponent implements OnInit {
   @ViewChild('webcam') webcamElement: ElementRef;
   webcam: any;
 
-  ngOnInit(): void {
+  async ngOnInit()  {
     this.getProjectCategories();
   }
 
   async ngAfterViewInit() {
-     this.webcam = await tf.data.webcam(this.webcamElement.nativeElement);
+    this.webcam = await tf.data.webcam(this.webcamElement.nativeElement);
   }
 
   getProjectCategories() {
     this.fcs.colWithIds$(`projects/${this.projectID}/categories`, ref=>ref.orderBy('createdAt', 'asc'))
       .subscribe((categories: visionCategoryModel[]) => {
-        this.projectCategories = categories;
+        this.projectCategories = categories
+          .filter(category => category.enable !== false)
+          .map((category: any) => {
+            category.colorBar = this.getRandomColor();
+            return category;
+          })
       });
   }
 
